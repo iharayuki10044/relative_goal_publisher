@@ -3,6 +3,7 @@
 
 #include <random>
 #include <ros/ros.h>
+#include <nav_msgs/Odometry.h>
 
 #include <tf2_eigen/tf2_eigen.h>
 #include <tf2/utils.h>
@@ -15,11 +16,23 @@
 #include <Eigen/Dense>
 #include <Eigen/Geometry>
 
-class RELATIVE_GOAL_PUBLISHER 
+class RelativeGoalPublisher
 {
     public:
+        RelativeGoalPublisher();
         void process(void);
+        void odom_complement_callback(const nav_msgs::OdometryConstPtr&);
+
     private:
 
+        bool odom_update_flag;
+
+        ros::NodeHandle private_nh;
+
+        nav_msgs::Odometry current_odom;
+
+        //subscriber
+        ros::Subscriber sub_odom_comp;
+        //publisher
 };
 #endif
