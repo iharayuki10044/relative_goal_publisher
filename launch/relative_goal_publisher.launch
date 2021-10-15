@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+
+<launch>
+    <arg name="hz" default="20"/>
+    <!-- <arg name="use_scan_as_input" default="false"/> -->
+
+    <node pkg="relative_goal_publisher" type="relative_goal_publisher" name="relative_goal_publisher" >
+        <!-- <remap from="/local_goal" to="/local_goal"/>
+        <remap from="/cmd_vel" to="/local_path/cmd_vel"/>
+        <remap from="/odom" to="/odom"/> -->
+    </node>
+</launch>
